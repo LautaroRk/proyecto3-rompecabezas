@@ -1,7 +1,8 @@
 /*Código armado por La Foca Loca S.A. No modificar*/
 body {
   font-family: Arial, sans-serif;
-  width: 940px;
+  max-width: 940px;
+  width: 80%;
   margin: 5% auto;
   min-height: 100%;
   background-image: url(../images/adventure.jpg);
@@ -29,6 +30,7 @@ li::before {
   margin: 0;
   vertical-align: top;
 }
+
 .col-40 {
   background: #FFF;
   padding: 30px;
@@ -37,7 +39,29 @@ li::before {
 
 .col-60 {
   background: #E84A5F;
+}
 
+#juego {
+  height: 600.5px;
+  width: 600.5px;
+}
+
+.pieza {
+  max-height: 200px;
+  max-width: 200px;
+  float: left;
+}
+
+.pieza img {
+  box-sizing: border-box;
+  border: 0.5px solid transparent;
+  height: 100%;
+  width: 100%;
+}
+
+#objetivo img {
+  width: 200px;
+  height: 200px;
 }
 
 #flecha{

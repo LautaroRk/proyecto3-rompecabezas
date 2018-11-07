@@ -4,7 +4,8 @@
          -Agregar botón de Reiniciar.
          -Terminar de diseñar el cartel ganador que reemplace el alert.
          -Terminar la funcionalidad del cartelGanador agregando y quitando clases en HTML.
-         -¿? Agregar niveles de dificultad (grillas más grandes) y variedad de imagenes. */
+         -¿? Agregar niveles de dificultad (grillas más grandes o niveles de mezcla) 
+         y variedad de imagenes. */
 
 // Arreglo que contiene las intrucciones del juego 
 var instrucciones = ["Utilizar las flechas para mover las piezas","Ordenar las piezas hasta alcanzar la imagen objetivo"];

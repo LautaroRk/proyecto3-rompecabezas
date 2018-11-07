@@ -1,4 +1,7 @@
-/*Código armado por La Foca Loca S.A. No modificar*/
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   max-width: 940px;
@@ -35,20 +38,25 @@ li::before {
   background: #FFF;
   padding: 30px;
   color: #000;
+  width: 40%;
 }
 
 .col-60 {
-  background: #E84A5F;
+  background: #FFF;
+  padding: 3%;
+  width: 60%;
 }
 
 #juego {
-  height: 600.5px;
-  width: 600.5px;
+  background: #E84A5F;
+  height: 605px;
+  width: 605px;
+  padding: 2px;
 }
 
 .pieza {
-  max-height: 200px;
-  max-width: 200px;
+  height: 200px;
+  width: 200px;
   float: left;
 }
 
@@ -76,6 +84,32 @@ li::before {
   text-align: center;
   animation: fadein 2s;
 }
+
+/* CORREGIR CLASES DEL CARTEL GANADOR */
+.cartel-ganador.activo {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+}
+
+.cartel-ganador.oculto {
+  display: none;
+}
+
+
+#cartel-ganador img {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+}
+
 
 @keyframes fadein {
   from { opacity: 0; }

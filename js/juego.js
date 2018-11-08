@@ -81,13 +81,13 @@ function contarSegundos() {
 //Cartel que avisa que ganaste el juego, tiempo transcurrido y cantidad de movimientos
 function mostrarCartelGanador() {
   if (minutos > 0){
-    alert("Objetivo conseguido!\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
+    alert("¡Ya era hora!\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
     clearInterval(cronometro);
   }else if (minutos === 0 && segundos > 10){
-    alert("Excelente!\n\nTiempo: " + segundos + " segundos!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
+    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
     clearInterval(cronometro);
   }else{
-    alert("MAESTRO POKEMON!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
+    alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
     clearInterval(cronometro);
   }
   iniciar();

@@ -8,11 +8,17 @@ body {
   width: 80%;
   margin: 5% auto;
   min-height: 100%;
-  background-image: url(../images/adventure.jpg);
+  background-image: url(../images/fondo.jpg);
+  background-size: 100%;
+}
+.container {
+  box-shadow: 0.5px 0.5px 20px rgb(60, 60, 60);
 }
 ul {
+  margin-top: 1px;
   padding-left: 0;
   list-style: none;
+  font-size: 0.9em;
 }
 li {
   padding: 5px 0;
@@ -20,12 +26,24 @@ li {
 }
 li::before {
   content: "• ";
-  color: #EC6778;
+  font-size: 1.4em;
+  color: #f5dd41;
 }
 
 .col-40 h1 {
-  font-size: 30px;
-  color: #E84A5F;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 35px;
+  color: #a74818;
+}
+.smaller {
+  font-size: 0.55em;
+  color: #5b7ca3;
+}
+h2 {
+  font-size: 1.16em;
+  color: #5b7ca3;
+  margin-bottom: 1px;
 }
 
 .col-40, .col-60 {
@@ -36,7 +54,7 @@ li::before {
 
 .col-40 {
   background: #FFF;
-  padding: 30px;
+  padding: 0px 20px 25px 25px;
   color: #000;
   width: 40%;
 }
@@ -49,9 +67,9 @@ li::before {
 }
 
 #juego {
-  background: #E84A5F;
-  height: 605px;
-  width: 605px;
+  background: #e2d058;
+  height: 604px;
+  width: 604px;
   padding: 2px;
 }
 
@@ -62,8 +80,7 @@ li::before {
 }
 
 .pieza img {
-  box-sizing: border-box;
-  border: 0.5px solid transparent;
+  border: 0.1px solid transparent;
   height: 100%;
   width: 100%;
 }
@@ -71,10 +88,13 @@ li::before {
 #objetivo img {
   width: 200px;
   height: 200px;
+  border: 0.5px solid #e2d058;
 }
 
 #flecha{
-  font-size: 60px;
+  font-size: 55px;
+  margin-top: 8px;
+  padding-bottom: 25px;
 }
 
 .texto-centrado {
@@ -130,8 +150,8 @@ li::before {
     min-width: 520px;
   }
   #juego {
-    width: 455px;
-    height: 455px;
+    width: 454px;
+    height: 454px;
     margin: auto;
   }
   .pieza {
@@ -140,13 +160,13 @@ li::before {
   }
   #objetivo {
     float: right;
-    font-size: 0.8em;
+    font-size: 0.9em;
     text-align: right;
     margin-right: 8%; 
   }
   #ultimo-mov {
     float: left;
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-left: 25px;
     text-align: center;
   }
@@ -159,7 +179,7 @@ li::before {
     height: 150px; 
   }
   #instrucciones {
-    font-size: 0.85em;
+    font-size: 0.95em;
     margin-left: 25px;
   }
   h1 {

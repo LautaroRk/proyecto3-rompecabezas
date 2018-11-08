@@ -9,7 +9,8 @@ body {
   margin: 5% auto;
   min-height: 100%;
   background-image: url(../images/fondo.jpg);
-  background-size: 100%;
+  background-size: auto;
+  
 }
 .container {
   box-shadow: 0.5px 0.5px 20px rgb(60, 60, 60);
@@ -32,18 +33,18 @@ li::before {
 
 .col-40 h1 {
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 35px;
   color: #a74818;
 }
 .smaller {
   font-size: 0.55em;
-  color: #5b7ca3;
+  color: #75889e;
 }
 h2 {
   font-size: 1.16em;
-  color: #5b7ca3;
-  margin-bottom: 1px;
+  color: #74a6df;
+  margin-bottom: 3px;
 }
 
 .col-40, .col-60 {
@@ -142,12 +143,15 @@ h2 {
 
 @media screen and (max-width: 800px) {
   body {
-    width: 92%;
+    width: 90%;
   }
   .col-40, .col-60 {
     float: left;
-    width: 100%;
+    width: 94%;
+    max-width: 550px;
     min-width: 520px;
+    margin-right: 3%;
+    margin-left: 3%;
   }
   #juego {
     width: 454px;
@@ -160,26 +164,23 @@ h2 {
   }
   #objetivo {
     float: right;
-    font-size: 0.9em;
     text-align: right;
     margin-right: 8%; 
   }
   #ultimo-mov {
     float: left;
-    font-size: 0.9em;
     margin-left: 25px;
     text-align: center;
   }
   #flecha {
-    font-size: 6em;
-    margin-top: 25px;
+    font-size: 5em;
+    margin-top: 28px;
   }
   #objetivo img {
-    width: 150px;
-    height: 150px; 
+    width: 170px;
+    height: 170px; 
   }
   #instrucciones {
-    font-size: 0.95em;
     margin-left: 25px;
   }
   h1 {

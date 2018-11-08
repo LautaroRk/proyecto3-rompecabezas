@@ -45,6 +45,7 @@ li::before {
   background: #FFF;
   padding: 3%;
   width: 60%;
+  min-width: 615px;
 }
 
 #juego {
@@ -115,3 +116,54 @@ li::before {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+
+/* Media Queries */
+
+@media screen and (max-width: 800px) {
+  body {
+    width: 92%;
+  }
+  .col-40, .col-60 {
+    float: left;
+    width: 100%;
+    min-width: 520px;
+  }
+  #juego {
+    width: 455px;
+    height: 455px;
+    margin: auto;
+  }
+  .pieza {
+    width: 150px;
+    height: 150px;
+  }
+  #objetivo {
+    float: left;
+    font-size: 0.8em;
+  }
+  #ultimo-mov {
+    float: right;
+    font-size: 0.8em;
+  }
+  #objetivo img {
+    width: 150px;
+    height: 150px; 
+  }
+  #instrucciones {
+    font-size: 0.8em;
+  }
+}
+
+/* @media screen and (max-width: 500px) {
+  #principal, #secundario, #terciario {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 22px;
+  }
+} */

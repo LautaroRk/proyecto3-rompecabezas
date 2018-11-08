@@ -1,9 +1,10 @@
 /*FALTA: -Evitar la acumulacion de instrucciones en la lista.
          -Mostrar cronómetro y movimientos en tiempo real y con formato de reloj digital.
-         -Agregar propiedades media responsive en CSS. 
          -Agregar botón de Reiniciar.
          -Terminar de diseñar el cartel ganador que reemplace el alert.
          -Terminar la funcionalidad del cartelGanador agregando y quitando clases en HTML.
+         -Agregar opción de ocultar imagen objetivo.
+         -Reemplazar flechas de ultimo movimiento por imagenes de las flechas del teclado.
          -¿? Agregar niveles de dificultad (grillas más grandes o niveles de mezcla) 
          y variedad de imagenes. */
 
@@ -32,9 +33,6 @@ function mostrarInstrucciones(instrucciones) {
       mostrarInstruccionEnLista(instrucciones[i],"lista-instrucciones");
     }
 }
-
-// Agrega la última dirección al arreglo de movimientos
-// La función actualizarUltimoMovimiento lo muestra en pantalla
 
 // Chequear si el rompecabezas esta en la posicion ganadora
 function chequearSiGano() {
@@ -147,13 +145,15 @@ function moverEnDireccion(direccion) {
     nuevaColumnaPiezaVacia = columnaVacia + 1;
   }
 
+  // Agrega la última dirección al arreglo de movimientos
+  // La función actualizarUltimoMovimiento lo muestra en pantalla
   // Se chequea si la nueva posición es válida, si lo es, se intercambia. 
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         movimientos.push(direccion);
+        console.log(movimientos);
         actualizarUltimoMovimiento(direccion);
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
     }
 }
 
@@ -281,7 +281,6 @@ function capturarTeclas() {
 /* Al iniciar se muestran las instrucciones, se mezclan las piezas y se inicializa 
 el cronómetro. */
 function iniciar() {
-    mostrarInstrucciones(instrucciones);
     var veces = 30;
     mezclarPiezas(veces);
     setTimeout(inicializarCronometro, (veces+1)*100);
@@ -289,5 +288,6 @@ function iniciar() {
     capturarTeclas();
 }
 
-// Ejecutamos la función iniciar
+// Ejecutamos la función iniciar y mostrarInstrucciones
 iniciar();
+mostrarInstrucciones(instrucciones);

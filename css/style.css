@@ -28,7 +28,7 @@ li {
 li::before {
   content: "• ";
   font-size: 1.4em;
-  color: #f5dd41;
+  color: #5a8ac2;
 }
 
 .col-40 h1 {
@@ -39,11 +39,11 @@ li::before {
 }
 .smaller {
   font-size: 0.55em;
-  color: #75889e;
+  color: #37404b;
 }
 h2 {
   font-size: 1.16em;
-  color: #74a6df;
+  color: #5a8ac2;
   margin-bottom: 3px;
 }
 
@@ -54,14 +54,14 @@ h2 {
 }
 
 .col-40 {
-  background: #FFF;
+  background: #f8fdff;
   padding: 0px 20px 25px 25px;
   color: #000;
   width: 40%;
 }
 
 .col-60 {
-  background: #FFF;
+  background: #f8fdff;
   padding: 3%;
   width: 60%;
   min-width: 615px;
@@ -89,6 +89,7 @@ h2 {
 #objetivo img {
   width: 200px;
   height: 200px;
+  margin-top: 3px;
   border: 0.5px solid #e2d058;
 }
 

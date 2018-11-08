@@ -24,7 +24,7 @@ li::before {
 }
 
 .col-40 h1 {
-  font-size: 20px;
+  font-size: 30px;
   color: #E84A5F;
 }
 
@@ -139,31 +139,30 @@ li::before {
     height: 150px;
   }
   #objetivo {
-    float: left;
-    font-size: 0.8em;
-  }
-  #ultimo-mov {
     float: right;
     font-size: 0.8em;
+    text-align: right;
+    margin-right: 8%; 
+  }
+  #ultimo-mov {
+    float: left;
+    font-size: 0.8em;
+    margin-left: 25px;
+    text-align: center;
+  }
+  #flecha {
+    font-size: 6em;
+    margin-top: 25px;
   }
   #objetivo img {
     width: 150px;
     height: 150px; 
   }
   #instrucciones {
-    font-size: 0.8em;
+    font-size: 0.85em;
+    margin-left: 25px;
+  }
+  h1 {
+    text-align: center;
   }
 }
-
-/* @media screen and (max-width: 500px) {
-  #principal, #secundario, #terciario {
-    float: none;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  body {
-    font-size: 22px;
-  }
-} */

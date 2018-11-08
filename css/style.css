@@ -35,7 +35,8 @@ li::before {
   margin-top: 20px;
   margin-bottom: 30px;
   font-size: 35px;
-  color: #a74818;
+  color: #b32911;
+  float: left;
 }
 .smaller {
   font-size: 0.55em;
@@ -81,7 +82,7 @@ h2 {
 }
 
 .pieza img {
-  border: 0.1px solid transparent;
+  padding: 0.5px;
   height: 100%;
   width: 100%;
 }
@@ -96,7 +97,7 @@ h2 {
 #flecha{
   font-size: 55px;
   margin-top: 8px;
-  padding-bottom: 25px;
+  padding-bottom: 15px;
 }
 
 .texto-centrado {

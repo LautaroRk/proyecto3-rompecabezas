@@ -63,10 +63,37 @@ function inicializarCronometro() {
 
 function contarSegundos() {
   segundos++;
-  if(segundos === 60){
+  if(segundos == 60){
     segundos = 0;
     minutos++;
   }
+  actualizarCronometroEnPantalla();
+}
+
+function actualizarCronometroEnPantalla() {
+  var segundosHTML = document.getElementById('segundos');
+  var minutosHTML = document.getElementById('minutos');
+  var seg = '';
+  var min = '';
+
+  if (segundos == 0) {
+    seg = ':00';
+  }else if (segundos < 10) {
+    seg = ':' + '0' + segundos;
+  }else{
+    seg = ':' + segundos;
+  }
+
+  if (minutos == 0) {
+    min = '00'
+  }else if (minutos < 10) {
+    min = '0' + minutos;
+  }else{
+    min = '' + minutos;
+  }
+
+  segundosHTML.innerHTML = seg;
+  minutosHTML.innerHTML = min;
 }
 
 
@@ -82,15 +109,12 @@ function contarSegundos() {
 function mostrarCartelGanador() {
   if (minutos > 0){
     alert("Ya era hora...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-    clearInterval(cronometro);
   }else if (minutos === 0 && segundos > 10){
-    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-    clearInterval(cronometro);
+    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
   }else{
     alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-    clearInterval(cronometro);
   }
-  iniciar();
+  clearInterval(cronometro);
   // cartelGanador.classList.remove('oculto');
   // // cartelGanador.classList.add('activo');
   // cartelGanador.addEventListener('click', ocultarCartelGanador());
@@ -150,12 +174,23 @@ function moverEnDireccion(direccion) {
   // Se chequea si la nueva posición es válida, si lo es, se intercambia. 
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         movimientos.push(direccion);
-        console.log(movimientos);
         actualizarUltimoMovimiento(direccion);
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
     }
 }
+
+// Funciones para mostrar y ocultar el boton de reinicio
+var botonReiniciar = document.getElementById('reiniciar');
+
+function mostrarBoton(boton) {
+  boton.classList.remove('ocultar');
+}
+
+function ocultarBoton(boton) {
+  boton.classList.add('ocultar');
+}
+
 
 /* FUNCION YA IMPLEMENTADA: codigosDireccion es un objeto que te permite reemplazar
 el uso de números confusos en tu código. Para referirte a la dir
@@ -270,6 +305,7 @@ function capturarTeclas() {
         var gano = chequearSiGano();
         if (gano) {
           setTimeout(function() {
+              mostrarBoton(botonReiniciar);
               mostrarCartelGanador();
               }, 500);
             }
@@ -280,12 +316,15 @@ function capturarTeclas() {
 
 /* Al iniciar se muestran las instrucciones, se mezclan las piezas y se inicializa 
 el cronómetro. */
+var cronometro;
+
 function iniciar() {
-    var veces = 30;
-    mezclarPiezas(veces);
-    setTimeout(inicializarCronometro, (veces+1)*100);
-    cronometro = setInterval(contarSegundos, 1000);
-    capturarTeclas();
+  ocultarBoton(botonReiniciar);
+  var veces = 30;
+  mezclarPiezas(veces);
+  setTimeout(inicializarCronometro, (veces+1)*100);
+  cronometro = setInterval('contarSegundos()', 1000);
+  capturarTeclas();
 }
 
 // Ejecutamos la función iniciar y mostrarInstrucciones

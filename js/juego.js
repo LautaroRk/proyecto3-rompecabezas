@@ -9,7 +9,7 @@
          y variedad de imagenes. */
 
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = ["Utilizar las flechas para mover las piezas hacia la posición vacía","Ordenar las piezas hasta alcanzar la imagen objetivo","Toca en la flecha ubicada en la posición vacía para reiniciar el juego"];
+var instrucciones = ["Utilizar las flechas o clickear sobre una pieza para moverla hacia la posición vacía.","Ordenar las piezas hasta alcanzar la imagen objetivo."];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 var movimientosHTML = document.getElementById('movimientos');
@@ -112,7 +112,7 @@ function actualizarCronometroEnPantalla() {
 function mostrarCartelGanador() {
   clearInterval(cronometro);
   if (minutos >= 1){
-    alert("Ya era hora...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
+    alert("Mejor tarde que nunca...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
   }else if (minutos < 2 && segundos > 10){
     alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
   }else{
@@ -185,7 +185,7 @@ function moverEnDireccion(direccion) {
     }
 }
 
-// Funciones para mostrar y ocultar el boton de reinicio
+// NO FUNCIONA. Funciones para mostrar y ocultar el boton de reinicio
 var botonReiniciar = document.getElementById('reiniciar');
 
 function mostrarBoton(boton) {
@@ -244,16 +244,16 @@ function actualizarUltimoMovimiento(direccion) {
   ultimoMov = document.getElementById('flecha');
   switch (direccion) {
     case codigosDireccion.ARRIBA:
-      ultimoMov.textContent = '↑';
+      ultimoMov.innerHTML = '<img src="images/arriba.png" alt="arriba">';
       break;
     case codigosDireccion.ABAJO:
-      ultimoMov.textContent = '↓';
+      ultimoMov.innerHTML = '<img src="images/abajo.png" alt="abajo">';
       break;
     case codigosDireccion.DERECHA:
-      ultimoMov.textContent = '→';
+      ultimoMov.innerHTML = '<img src="images/derecha.png" alt="derecha">';
       break;
     case codigosDireccion.IZQUIERDA:
-      ultimoMov.textContent = '←';
+      ultimoMov.innerHTML = '<img src="images/izquierda.png" alt="izquierda">';
       break;
   }
 }
@@ -312,8 +312,8 @@ function capturarTeclas() {
         var gano = chequearSiGano();
         if (gano) {
           setTimeout(function() {
-              mostrarBoton(botonReiniciar);
               mostrarCartelGanador();
+              iniciar();
               }, 500);
             }
             evento.preventDefault();
@@ -325,11 +325,11 @@ function capturarTeclas() {
 function moverPiezaClickeada(fila, columna) {
 
   if(fila - 1 === filaVacia && columna === columnaVacia) {
-    moverEnDireccion(codigosDireccion.ABAJO);
+    moverEnDireccion(codigosDireccion.ARRIBA);
   }
 
   else if(fila + 1 === filaVacia && columna === columnaVacia) {
-    moverEnDireccion(codigosDireccion.ARRIBA);
+    moverEnDireccion(codigosDireccion.ABAJO);
   }
 
   else if(fila === filaVacia && columna - 1 === columnaVacia) {
@@ -339,6 +339,14 @@ function moverPiezaClickeada(fila, columna) {
   else if(fila === filaVacia && columna + 1 === columnaVacia) {
     moverEnDireccion(codigosDireccion.DERECHA);
   }
+
+  var gano = chequearSiGano();
+  if (gano) {
+    setTimeout(function() {
+        mostrarCartelGanador();
+        iniciar();
+    }, 500);
+  }
 }
 
 /* Al iniciar se muestran las instrucciones, se mezclan las piezas y se inicializa 
@@ -347,7 +355,6 @@ var cronometro;
 var veces = 30;
 
 function iniciar() {
-  ocultarBoton(botonReiniciar); //no anda
   mezclarPiezas(veces);
   clearInterval(cronometro);
   cronometro = setInterval('contarSegundos()', 1000);

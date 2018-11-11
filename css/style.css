@@ -6,7 +6,7 @@ body {
   font-family: Arial, sans-serif;
   max-width: 940px;
   width: 80%;
-  margin: 5% auto;
+  margin: 3% auto;
   min-height: 100%;
   background-image: url(../images/fondo.jpg);
   background-size: cover;
@@ -44,7 +44,8 @@ li::before {
 h2 {
   font-size: 1.16em;
   color: #5a8ac2;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  margin-top: 25px;
 }
 
 .col-40, .col-60 {
@@ -62,7 +63,7 @@ h2 {
 
 .col-60 {
   background: #f8fdff;
-  padding: 3%;
+  padding: 3% 3% 0.5% 3%;
   width: 60%;
   min-width: 615px;
 }
@@ -86,60 +87,73 @@ h2 {
   width: 100%;
 }
 
-#reiniciar {
-  width: 100%;
-  height: 100%;
-  font-size: 25px;
-  background-color: #ad5a36;
-  text-align: center;
-  padding: auto;
-  outline: none;
-  border: none;
-  z-index: 1;
+#grilla-fija {
+  z-index: 10000;
+  position: absolute;
+  height: 604px;
+  width: 604px;
+  padding: 2px;
 }
 
-#reiniciar img {
-  width: 30%;
-  height: 30%;
-  cursor: pointer;
-}
+/* .pieza.fija {
+  border: 3px solid black;
+} */
 
 /* .ocultar {
   display: none;
 } */
 
-#reloj-contenedor {
-  position: relative;
-  font-size: 23px;
-  color: #f8fdff;
-  bottom: 35px;
-  right: 15px;
+#indicadores {
+  margin: 5px 20% 5px 26%;
+  display: flex;
+}
+
+#movimientos {
+  z-index: 2;
+  font-size: 25px;
+  margin-top: 4px;
+  color: #1f1f1f;
+  justify-content: flex-start;
+}
+
+#reiniciar {
+  justify-content: center;
+  text-align: center;
+  padding: auto;
+  outline: none;
+  border: none;
+  z-index: 1000000;
+}
+#reiniciar img {
+  width: 10%;
+  height: 10%;
+  cursor: pointer;
   z-index: 2;
 }
-#movimientos {
-  position: relative;
-  bottom: 35px;
-  left: 15px;
-  z-index: 2;
+
+#reloj-contenedor {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 7px;
   font-size: 23px;
-  color: #f8fdff;
-  float: left;
+  color: #1f1f1f;
+  z-index: 2;
 }
 .reloj {
-  float: right;
+  justify-content: flex-end;
 }
 
 #objetivo img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   margin-top: 3px;
   border: 0.5px solid #e2d058;
 }
 
-#flecha{
-  font-size: 55px;
-  margin-top: 8px;
-  padding-bottom: 15px;
+#flecha img{
+  width: 50px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 }
 
 .texto-centrado {
@@ -191,11 +205,14 @@ h2 {
   }
   .col-40, .col-60 {
     float: left;
-    width: 94%;
+    width: 80%;
     max-width: 550px;
     min-width: 520px;
     margin-right: 3%;
     margin-left: 3%;
+  }
+  .col-40 {
+    padding-bottom: 5px;
   }
   .col-60 {
     margin-bottom: 5%;
@@ -205,6 +222,14 @@ h2 {
     height: 454px;
     margin: auto;
   }
+
+  #grilla-fija {
+    width: 454px;
+    height: 454px;
+    margin: auto;
+    left: 13.8%;
+  }
+
   .pieza {
     width: 150px;
     height: 150px;
@@ -225,25 +250,42 @@ h2 {
   #objetivo {
     float: right;
     text-align: right;
-    margin-right: 8%; 
+    margin-right: 6%; 
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
   }
   #ultimo-mov {
     float: left;
-    margin-left: 25px;
+    margin-left: 5px;
     text-align: center;
   }
   #flecha {
     font-size: 5em;
     margin-top: 28px;
   }
+  #flecha img {
+    width: 40px;
+    height: 40px;
+  }
   #objetivo img {
-    width: 170px;
-    height: 170px; 
+    width: 120px;
+    height: 120px; 
   }
   #instrucciones {
-    margin-left: 25px;
+    margin: 40px 6% 0px 30px;
+    text-align: right;
+    padding-bottom: 0;
+  }
+  li {
+    text-align: justify;
   }
   h1 {
-    text-align: center;
+    text-align: left;
+    margin-left: 25px;
+    margin-right: 70px;
+  }
+  h2 {
+    font-size: 1.1em;
   }
 }

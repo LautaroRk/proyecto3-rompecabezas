@@ -9,9 +9,10 @@
          y variedad de imagenes. */
 
 // Arreglo que contiene las intrucciones del juego 
-var instrucciones = ["Utilizar las flechas para mover las piezas","Ordenar las piezas hasta alcanzar la imagen objetivo"];
+var instrucciones = ["Utilizar las flechas para mover las piezas hacia la posición vacía","Ordenar las piezas hasta alcanzar la imagen objetivo","Toca en la flecha ubicada en la posición vacía para reiniciar el juego"];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
+var movimientosHTML = document.getElementById('movimientos');
 
 // Representación de la grilla. Cada número representa a una pieza.
 // El 9 es la posición vacía
@@ -54,11 +55,15 @@ function chequearSiGano() {
 // Inicializar cronómetro 
 var segundos = 0;
 var minutos = 0;
+var segundosHTML = document.getElementById('segundos');
+var minutosHTML = document.getElementById('minutos');
 
 
 function inicializarCronometro() {
   segundos = 0;
   minutos = 0;
+  segundosHTML.innerHTML = ':00';
+  minutosHTML.innerHTML = '00';
 }
 
 function contarSegundos() {
@@ -71,8 +76,6 @@ function contarSegundos() {
 }
 
 function actualizarCronometroEnPantalla() {
-  var segundosHTML = document.getElementById('segundos');
-  var minutosHTML = document.getElementById('minutos');
   var seg = '';
   var min = '';
 
@@ -107,15 +110,15 @@ function actualizarCronometroEnPantalla() {
 
 //Cartel que avisa que ganaste el juego, tiempo transcurrido y cantidad de movimientos
 function mostrarCartelGanador() {
-  if (minutos > 0){
-    alert("Ya era hora...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-  }else if (minutos === 0 && segundos > 10){
-    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-  }else{
-    alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length + "\n\nToque 'Aceptar' para reiniciar el juego");
-  }
   clearInterval(cronometro);
-  // cartelGanador.classList.remove('oculto');
+  if (minutos >= 1){
+    alert("Ya era hora...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
+  }else if (minutos < 2 && segundos > 10){
+    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
+  }else{
+    alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length);
+  }
+  // cartelGanador.classList.replace('oculto', 'activo');
   // // cartelGanador.classList.add('activo');
   // cartelGanador.addEventListener('click', ocultarCartelGanador());
 }
@@ -172,8 +175,10 @@ function moverEnDireccion(direccion) {
   // Agrega la última dirección al arreglo de movimientos
   // La función actualizarUltimoMovimiento lo muestra en pantalla
   // Se chequea si la nueva posición es válida, si lo es, se intercambia. 
+
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         movimientos.push(direccion);
+        movimientosHTML.innerHTML++;
         actualizarUltimoMovimiento(direccion);
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
@@ -285,7 +290,9 @@ function mezclarPiezas(veces) {
       mezclarPiezas(veces - 1);
     }, 100);
 
+  inicializarCronometro();
   movimientos = [];    
+  movimientosHTML.innerHTML = '0';
 }
 
 /* FUNCION YA IMPLEMENTADA: Esta función captura las teclas presionadas por el usuario. Javascript
@@ -314,15 +321,35 @@ function capturarTeclas() {
     })
 }
 
+//No funciona. Probar generar una grilla invisible arriba de la otra que mantenga las posiciones fijas.
+function moverPiezaClickeada(fila, columna) {
+
+  if(fila - 1 === filaVacia && columna === columnaVacia) {
+    moverEnDireccion(codigosDireccion.ABAJO);
+  }
+
+  else if(fila + 1 === filaVacia && columna === columnaVacia) {
+    moverEnDireccion(codigosDireccion.ARRIBA);
+  }
+
+  else if(fila === filaVacia && columna - 1 === columnaVacia) {
+    moverEnDireccion(codigosDireccion.IZQUIERDA);
+  }
+
+  else if(fila === filaVacia && columna + 1 === columnaVacia) {
+    moverEnDireccion(codigosDireccion.DERECHA);
+  }
+}
+
 /* Al iniciar se muestran las instrucciones, se mezclan las piezas y se inicializa 
 el cronómetro. */
 var cronometro;
+var veces = 30;
 
 function iniciar() {
-  ocultarBoton(botonReiniciar);
-  var veces = 30;
+  ocultarBoton(botonReiniciar); //no anda
   mezclarPiezas(veces);
-  setTimeout(inicializarCronometro, (veces+1)*100);
+  clearInterval(cronometro);
   cronometro = setInterval('contarSegundos()', 1000);
   capturarTeclas();
 }

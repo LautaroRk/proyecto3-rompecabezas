@@ -10,7 +10,6 @@ body {
   min-height: 100%;
   background-image: url(../images/fondo.jpg);
   background-size: cover;
-  
 }
 .container {
   box-shadow: 0.5px 0.5px 20px rgb(60, 60, 60);
@@ -111,13 +110,22 @@ h2 {
 
 #reloj-contenedor {
   position: relative;
-  bottom: 35px;
-  right: 10px;
-  z-index: 2;
-}
-.reloj {
   font-size: 23px;
   color: #f8fdff;
+  bottom: 35px;
+  right: 15px;
+  z-index: 2;
+}
+#movimientos {
+  position: relative;
+  bottom: 35px;
+  left: 15px;
+  z-index: 2;
+  font-size: 23px;
+  color: #f8fdff;
+  float: left;
+}
+.reloj {
   float: right;
 }
 
@@ -201,6 +209,19 @@ h2 {
     width: 150px;
     height: 150px;
   }
+
+  #reloj-contenedor {
+    font-size: 18px;
+    right: 30px;
+    bottom: 25px;
+  }
+
+  #movimientos {
+    font-size: 18px;
+    left: 30px;
+    bottom: 25px;
+  }
+
   #objetivo {
     float: right;
     text-align: right;

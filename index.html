@@ -33,9 +33,9 @@
       </div>
 
       <div class="col-60">
-        <div id="grilla-fija">
+        <!-- <div id="grilla-fija">
           <div class="fila">
-            <div id="0-0" class="pieza fija" onclick="moverPiezaClickeada(0,0)"></div>
+            <div id="0-0" onclick="moverPiezaClickeada(0,0)"></div>
             <div id="0-1" class="pieza fija" onclick="moverPiezaClickeada(0,1)"></div>
             <div id="0-2" class="pieza fija" onclick="moverPiezaClickeada(0,2)"></div>
           </div>
@@ -49,17 +49,35 @@
             <div id="2-1" class="pieza fija" onclick="moverPiezaClickeada(2,1)"></div>
             <div id="2-2" class="pieza fija" onclick="moverPiezaClickeada(2,2)"></div>
           </div>
-        </div>
+        </div> -->
         <div id="juego">
-          <div id="pieza1" class="pieza"><img src="images/1.jpg" alt="pieza 1"></div>
-          <div id="pieza2" class="pieza"><img src="images/2.jpg" alt="pieza 2"></div>
-          <div id="pieza3" class="pieza"><img src="images/3.jpg" alt="pieza 3"></div>
-          <div id="pieza4" class="pieza"><img src="images/4.jpg" alt="pieza 4"></div>
-          <div id="pieza5" class="pieza"><img src="images/5.jpg" alt="pieza 5"></div>
-          <div id="pieza6" class="pieza"><img src="images/6.jpg" alt="pieza 6"></div>
-          <div id="pieza7" class="pieza"><img src="images/7.jpg" alt="pieza 7"></div>
-          <div id="pieza8" class="pieza"><img src="images/8.jpg" alt="pieza 8"></div>
-          <div id="pieza9" class="pieza"></div>
+          <div id="0-0" onclick="moverPiezaClickeada(0,0)">
+            <div id="pieza1" class="pieza"><img src="images/1.jpg" alt="pieza 1"></div>
+          </div>
+          <div id="0-1" onclick="moverPiezaClickeada(0,1)">
+            <div id="pieza2" class="pieza"><img src="images/2.jpg" alt="pieza 2"></div>
+          </div>
+          <div id="0-2" onclick="moverPiezaClickeada(0,2)">
+            <div id="pieza3" class="pieza"><img src="images/3.jpg" alt="pieza 3"></div>
+          </div>
+          <div id="1-0" onclick="moverPiezaClickeada(1,0)">
+            <div id="pieza4" class="pieza"><img src="images/4.jpg" alt="pieza 4"></div>
+          </div>
+          <div id="1-1" onclick="moverPiezaClickeada(1,1)">
+            <div id="pieza5" class="pieza"><img src="images/5.jpg" alt="pieza 5"></div>
+          </div>
+          <div id="1-2" onclick="moverPiezaClickeada(1,2)">
+            <div id="pieza6" class="pieza"><img src="images/6.jpg" alt="pieza 6"></div>
+          </div>
+          <div id="2-0" onclick="moverPiezaClickeada(2,0)">
+            <div id="pieza7" class="pieza"><img src="images/7.jpg" alt="pieza 7"></div>
+          </div>
+          <div id="2-1" onclick="moverPiezaClickeada(2,1)">
+            <div id="pieza8" class="pieza"><img src="images/8.jpg" alt="pieza 8"></div>
+          </div>
+          <div id="2-2" onclick="moverPiezaClickeada(2,2)">
+            <div id="pieza9" class="pieza"></div>
+          </div>
         </div>
         <div id="indicadores">
           <div id="movimientos">0</div>
@@ -77,8 +95,8 @@
       </div>
     </div>
     
-    <div id="cartel-ganador" class="cartel-ganador oculto">
-      <img onclick="" src="images/objetivo.png" alt="imagen final">
+    <div id="cartel-ganador" class="oculto">
+      <img onclick="ocultarCartelGanador()" src="images/objetivo.png" alt="imagen final">
     </div>
 
     <script src="js/juego.js"></script>

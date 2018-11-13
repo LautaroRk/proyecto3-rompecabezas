@@ -1,10 +1,8 @@
-/*FALTA: -Evitar la acumulacion de instrucciones en la lista.
-         -Mostrar cronómetro y movimientos en tiempo real y con formato de reloj digital.
-         -Agregar botón de Reiniciar.
+/*FALTA: 
+         -Ajustar desfasaje de la grilla invisible en pantalla angosta.
          -Terminar de diseñar el cartel ganador que reemplace el alert.
          -Terminar la funcionalidad del cartelGanador agregando y quitando clases en HTML.
          -Agregar opción de ocultar imagen objetivo.
-         -Reemplazar flechas de ultimo movimiento por imagenes de las flechas del teclado.
          -¿? Agregar niveles de dificultad (grillas más grandes o niveles de mezcla) 
          y variedad de imagenes. */
 
@@ -100,27 +98,28 @@ function actualizarCronometroEnPantalla() {
 }
 
 
-// var cartelGanador = document.getElementById('cartel-ganador');
+var cartelGanador = document.getElementById('cartel-ganador');
 
-// function ocultarCartelGanador() {
-//   // cartelGanador.classList.remove('activo');
-//   cartelGanador.classList.add('oculto');
-// }
+function ocultarCartelGanador() {
+  // cartelGanador.classList.remove('activo');
+  cartelGanador.classList.add('oculto');
+}
 
 
 //Cartel que avisa que ganaste el juego, tiempo transcurrido y cantidad de movimientos
 function mostrarCartelGanador() {
   clearInterval(cronometro);
-  if (minutos >= 1){
-    alert("Mejor tarde que nunca...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
-  }else if (minutos < 2 && segundos > 10){
-    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
-  }else{
-    alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length);
-  }
+  // if (minutos >= 1){
+  //   alert("Mejor tarde que nunca...\n\nTiempo: " + minutos + " minuto(s), " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
+  // }else if (minutos < 1 && segundos > 10){
+  //   alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
+  // }else{
+  //   alert("¡IMPECABLE!\n\nTiempo: ¡" + segundos + " segundos!" + "\nCantidad de movimientos: " + movimientos.length);
+  // }
+  cartelGanador.classList.remove('oculto');
   // cartelGanador.classList.replace('oculto', 'activo');
   // // cartelGanador.classList.add('activo');
-  // cartelGanador.addEventListener('click', ocultarCartelGanador());
+  cartelGanador.addEventListener('click', ocultarCartelGanador());
 }
 
 // Función que intercambia las posiciones de dos piezas en la grilla.
@@ -290,7 +289,7 @@ function mezclarPiezas(veces) {
       mezclarPiezas(veces - 1);
     }, 100);
 
-  inicializarCronometro();
+  setTimeout(inicializarCronometro, 300);
   movimientos = [];    
   movimientosHTML.innerHTML = '0';
 }
@@ -321,7 +320,10 @@ function capturarTeclas() {
     })
 }
 
-//No funciona. Probar generar una grilla invisible arriba de la otra que mantenga las posiciones fijas.
+function onClick (e){
+  console.log(e)
+}
+//Permite mover las piezas al clickearlas
 function moverPiezaClickeada(fila, columna) {
 
   if(fila - 1 === filaVacia && columna === columnaVacia) {
@@ -349,8 +351,7 @@ function moverPiezaClickeada(fila, columna) {
   }
 }
 
-/* Al iniciar se muestran las instrucciones, se mezclan las piezas y se inicializa 
-el cronómetro. */
+// Al iniciar se mezclan las piezas y se inicializa el cronómetro.
 var cronometro;
 var veces = 30;
 

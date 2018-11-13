@@ -398,6 +398,7 @@ mostrarInstrucciones(instrucciones);
       for (var i = 0; i < imagenesId.length; i++) {
           document.getElementById(imagenesId[i]).innerHTML = imagen[i];
       }
+      ocultarCartelGanador();
       mezclarPiezas(veces);
   }
 

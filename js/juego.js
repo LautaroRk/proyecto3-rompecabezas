@@ -13,6 +13,7 @@ var instrucciones = ["Utilizar las flechas o clickear sobre una pieza para mover
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 var movimientosHTML = document.getElementById('movimientos');
+var logrosMovimientosHTML = document.getElementById('logros-movimientos');
 
 // Representación de la grilla. Cada número representa a una pieza.
 // El 9 es la posición vacía
@@ -57,7 +58,7 @@ var segundos = 0;
 var minutos = 0;
 var segundosHTML = document.getElementById('segundos');
 var minutosHTML = document.getElementById('minutos');
-
+var logrosTiempoHTML = document.getElementById('logros-tiempo');
 
 function inicializarCronometro() {
   segundos = 0;
@@ -97,29 +98,30 @@ function actualizarCronometroEnPantalla() {
 
   segundosHTML.innerHTML = seg;
   minutosHTML.innerHTML = min;
+  logrosTiempoHTML.innerHTML = 'Tiempo: ' + min + seg;
 }
 
 
-// var cartelGanador = document.getElementById('cartel-ganador');
+var cartelGanador = document.getElementById('contenedor-cartel');
 
-// function ocultarCartelGanador() {
-//   // cartelGanador.classList.remove('activo');
-//   cartelGanador.classList.add('oculto');
-// }
+function ocultarCartelGanador() {
+  cartelGanador.classList.add('oculto');
+}
 
 
 //Cartel que avisa que ganaste el juego, tiempo transcurrido y cantidad de movimientos
 function mostrarCartelGanador() {
+  logrosMovimientosHTML.innerHTML = 'Movimientos: ' + movimientosHTML.innerHTML;
   clearInterval(cronometro);
-  if (minutos >= 1){
-    alert("Mejor tarde que nunca...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
-  }else if (minutos < 2 && segundos > 10){
-    alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
-  }else{
-    alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length);
-  }
+  // if (minutos >= 1){
+  //   alert("Mejor tarde que nunca...\n\nTiempo: " + minutos + "minuto(s), " + segundos + "segundo(s)" + "\nCantidad de movimientos: " + movimientos.length);
+  // }else if (minutos < 2 && segundos > 10){
+  //   alert("¡Buen trabajo!\n\nTiempo: " + segundos + " segundos" + "\nCantidad de movimientos: " + movimientos.length);
+  // }else{
+  //   alert("¡IMPECABLE!\n\nTiempo: " + segundos + " segundo(s)!" + "\nCantidad de movimientos: " + movimientos.length);
+  // }
   // cartelGanador.classList.replace('oculto', 'activo');
-  // // cartelGanador.classList.add('activo');
+  cartelGanador.classList.remove('oculto');
   // cartelGanador.addEventListener('click', ocultarCartelGanador());
 }
 
@@ -293,6 +295,7 @@ function mezclarPiezas(veces) {
   inicializarCronometro();
   movimientos = [];    
   movimientosHTML.innerHTML = '0';
+  logrosMovimientosHTML.innerHTML = '0';
 }
 
 /* FUNCION YA IMPLEMENTADA: Esta función captura las teclas presionadas por el usuario. Javascript
@@ -313,8 +316,7 @@ function capturarTeclas() {
         if (gano) {
           setTimeout(function() {
               mostrarCartelGanador();
-              iniciar();
-              }, 500);
+              }, 400);
             }
             evento.preventDefault();
         }
@@ -344,8 +346,7 @@ function moverPiezaClickeada(fila, columna) {
   if (gano) {
     setTimeout(function() {
         mostrarCartelGanador();
-        iniciar();
-    }, 500);
+    }, 400);
   }
 }
 
@@ -355,6 +356,7 @@ var cronometro;
 var veces = 30;
 
 function iniciar() {
+  ocultarCartelGanador();
   mezclarPiezas(veces);
   clearInterval(cronometro);
   cronometro = setInterval('contarSegundos()', 1000);
@@ -364,3 +366,39 @@ function iniciar() {
 // Ejecutamos la función iniciar y mostrarInstrucciones
 iniciar();
 mostrarInstrucciones(instrucciones);
+
+//Para cambiar el dibujo del rompecabezas
+  //Arreglo que recorre las imagenes.HTML 
+  var imagenesId = ['pieza1','pieza2','pieza3','pieza4','pieza5',
+  'pieza6','pieza7','pieza8','imagen-objetivo','imagen-final'];
+
+  //Arreglos para cada imagen
+  var cuarto = ['<img src="images/1.jpg">','<img src="images/2.jpg">',
+  '<img src="images/3.jpg">','<img src="images/4.jpg">','<img src="images/5.jpg">',
+  '<img src="images/6.jpg">','<img src="images/7.jpg">','<img src="images/8.jpg">',
+  '<img src="images/objetivo.png">','<img src="images/imagen-completa.jpg">'];
+
+  var pikachu = ['<img src="images/11.jpg">','<img src="images/12.jpg">',
+  '<img src="images/13.jpg">','<img src="images/14.jpg">','<img src="images/15.jpg">',
+  '<img src="images/16.jpg">','<img src="images/17.jpg">','<img src="images/18.jpg">',
+  '<img src="images/1objetivo.png">','<img src="images/1imagen-completa.jpg">'];
+
+  var oreja = ['<img src="images/21.jpg">','<img src="images/22.jpg">',
+  '<img src="images/23.jpg">','<img src="images/24.jpg">','<img src="images/25.jpg">',
+  '<img src="images/26.jpg">','<img src="images/27.jpg">','<img src="images/28.jpg">',
+  '<img src="images/2objetivo.png">','<img src="images/2imagen-completa.jpg">'];
+
+  var flores = ['<img src="images/31.jpg">','<img src="images/32.jpg">',
+  '<img src="images/33.jpg">','<img src="images/34.jpg">','<img src="images/35.jpg">',
+  '<img src="images/36.jpg">','<img src="images/37.jpg">','<img src="images/38.jpg">',
+  '<img src="images/3objetivo.png">','<img src="images/3imagen-completa.jpg">'];
+
+  //Función que reemplaza la etiqueta de HTML de cada imagen
+  function reemplazarImagenes (imagen){
+      for (var i = 0; i < imagenesId.length; i++) {
+          document.getElementById(imagenesId[i]).innerHTML = imagen[i];
+      }
+      mezclarPiezas(veces);
+  }
+
+  // reemplazarImagenes(flores);

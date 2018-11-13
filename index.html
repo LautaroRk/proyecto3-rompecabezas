@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/icon.png" />
   </head>
   <body>
-    <div class="container">
+    <div id="container">
       <div class="col-40">
       
         <div id="titulo">
@@ -24,7 +24,7 @@
         </div>
         <div id="objetivo">
             <h2>Objetivo</h2>
-            <img src="images/objetivo.png" alt="Imagen objetivo">
+            <div id="imagen-objetivo"><img src="images/objetivo.png" alt="Imagen objetivo"></div>
             <div class="texto-centrado">
               
             </div>
@@ -33,6 +33,13 @@
       </div>
 
       <div class="col-60">
+
+        <div id="header">
+          <button class='btn-imagen'><img onclick="reemplazarImagenes(cuarto)" src="images/btn-cuarto.jpg" alt="Cuarto"></button>
+          <button class='btn-imagen'><img onclick="reemplazarImagenes(oreja)" src="images/btn-oreja.jpg" alt="Oreja"></button>
+          <button class='btn-imagen'><img onclick="reemplazarImagenes(flores)" src="images/btn-flores.jpg" alt="Flores"></button>
+        </div>
+
         <div id="grilla-fija">
           <div class="fila">
             <div id="0-0" class="pieza fija" onclick="moverPiezaClickeada(0,0)"></div>
@@ -76,9 +83,15 @@
         
       </div>
     </div>
-    
-    <div id="cartel-ganador" class="cartel-ganador oculto">
-      <img onclick="" src="images/objetivo.png" alt="imagen final">
+    <div id="contenedor-cartel" class="oculto">
+      <div id="cartel-ganador">
+        <div id="imagen-final"><img src="images/imagen-completa.jpg" alt="imagen final"></div>
+        <div id="logros">
+          <div id="logros-movimientos"></div>
+          <button id="reiniciar-cartel" onclick="iniciar()"><img src="images/restart.png" alt="Restart"></button>
+          <div id="logros-tiempo"></div>
+        </div>
+      </div>
     </div>
 
     <script src="js/juego.js"></script>

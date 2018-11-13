@@ -3,17 +3,35 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
   max-width: 940px;
   width: 80%;
   margin: 3% auto;
-  min-height: 100%;
   background-image: url(../images/fondo.jpg);
   background-size: cover;
 }
-.container {
+#container {
   box-shadow: 0.5px 0.5px 20px rgb(60, 60, 60);
 }
+
+#header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f8fdff;
+}
+.btn-imagen img {
+  cursor: pointer;
+  width: 80px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  box-shadow: 0.1px 0.1px 3px rgb(60, 60, 60);
+  border: 2px solid #ad5a36;
+}
+
 ul {
   margin-top: 1px;
   padding-left: 0;
@@ -45,7 +63,7 @@ h2 {
   font-size: 1.16em;
   color: #5a8ac2;
   margin-bottom: 5px;
-  margin-top: 25px;
+  margin-top: 60px;
 }
 
 .col-40, .col-60 {
@@ -63,7 +81,7 @@ h2 {
 
 .col-60 {
   background: #f8fdff;
-  padding: 3% 3% 0.5% 3%;
+  padding: 15px 3% 0.5% 3%;
   width: 60%;
   min-width: 615px;
 }
@@ -87,6 +105,9 @@ h2 {
   width: 100%;
 }
 
+/* .pieza.fija {
+  border: 3px solid black;
+} */
 #grilla-fija {
   z-index: 10000;
   position: absolute;
@@ -95,20 +116,14 @@ h2 {
   padding: 2px;
 }
 
-/* .pieza.fija {
-  border: 3px solid black;
-} */
-
-/* .ocultar {
-  display: none;
-} */
-
 #indicadores {
-  margin: 5px 20% 5px 26%;
   display: flex;
+  justify-content: space-between;
+  margin: 7px 5px 5px 10px;
 }
 
 #movimientos {
+  display: flex;
   z-index: 2;
   font-size: 25px;
   margin-top: 4px;
@@ -116,25 +131,27 @@ h2 {
   justify-content: flex-start;
 }
 
-#reiniciar {
-  justify-content: center;
-  text-align: center;
-  padding: auto;
+button {
   outline: none;
   border: none;
-  z-index: 1000000;
+}
+
+#reiniciar {
+  justify-self: center;
+  text-align: center;
+  padding-left: 40px;
+  z-index: 3;
 }
 #reiniciar img {
-  width: 10%;
-  height: 10%;
+  width: 30px;
   cursor: pointer;
   z-index: 2;
 }
 
 #reloj-contenedor {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 7px;
+  justify-self: flex-end;
+  margin-top: 5px;
   font-size: 23px;
   color: #1f1f1f;
   z-index: 2;
@@ -151,9 +168,9 @@ h2 {
 }
 
 #flecha img{
-  width: 50px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  width: 70px;
+  padding-top: 50px;
+  border-radius: 5px;
 }
 
 .texto-centrado {
@@ -165,31 +182,54 @@ h2 {
   animation: fadein 2s;
 }
 
-/* CORREGIR CLASES DEL CARTEL GANADOR */
-.cartel-ganador.activo {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10000;
-}
-
-.cartel-ganador.oculto {
+#contenedor-cartel.oculto {
   display: none;
 }
 
-
-#cartel-ganador img {
-  width: 600px;
-  height: 600px;
-  margin: auto;
+#contenedor-cartel {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  animation: fadein 2s;
 }
 
+#cartel-ganador {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px 5px 25px;
+  background-color: #f8fdff;
+  border-radius: 5px;
+}
+
+#cartel-ganador img {
+  width: 650px;
+}
+
+#logros {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 550px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #f8fdff;
+}
+
+#reiniciar-cartel img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
 
 @keyframes fadein {
   from { opacity: 0; }
@@ -201,33 +241,30 @@ h2 {
 
 @media screen and (max-width: 800px) {
   body {
+    flex-direction: column;
     width: 90%;
+    padding-right: 15%;
+    padding-left: 15%;
   }
   .col-40, .col-60 {
     float: left;
-    width: 80%;
     max-width: 550px;
     min-width: 520px;
-    margin-right: 3%;
-    margin-left: 3%;
   }
   .col-40 {
     padding-bottom: 5px;
   }
-  .col-60 {
-    margin-bottom: 5%;
-  }
+
   #juego {
     width: 454px;
     height: 454px;
-    margin: auto;
+    margin-left: 17px;
   }
 
   #grilla-fija {
     width: 454px;
     height: 454px;
-    margin: auto;
-    left: 13.8%;
+    margin-left: 17px; 
   }
 
   .pieza {
@@ -235,16 +272,15 @@ h2 {
     height: 150px;
   }
 
+  #indicadores {
+    margin: 5px 25px;
+  }
   #reloj-contenedor {
     font-size: 18px;
-    right: 30px;
-    bottom: 25px;
   }
 
   #movimientos {
     font-size: 18px;
-    left: 30px;
-    bottom: 25px;
   }
 
   #objetivo {
@@ -257,28 +293,26 @@ h2 {
   }
   #ultimo-mov {
     float: left;
-    margin-left: 5px;
+    margin-left: 15px;
     text-align: center;
   }
-  #flecha {
-    font-size: 5em;
-    margin-top: 28px;
-  }
-  #flecha img {
-    width: 40px;
-    height: 40px;
+  #flecha img{
+    width: 60px;
+    padding-top: 35px;
   }
   #objetivo img {
     width: 120px;
     height: 120px; 
   }
   #instrucciones {
-    margin: 40px 6% 0px 30px;
+    margin: 40px 25px 0px 30px;
     text-align: right;
     padding-bottom: 0;
   }
   li {
     text-align: justify;
+    margin-bottom: 5px;
+    padding-bottom: 0;
   }
   h1 {
     text-align: left;
@@ -287,5 +321,18 @@ h2 {
   }
   h2 {
     font-size: 1.1em;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+  
+  #cartel-ganador img {
+    width: 500px;
+  }
+  #reiniciar-cartel img {
+    width: 40px;
+    height: 40px;
+  }
+  #logros {
+    width: 500px;
   }
 }

@@ -140,6 +140,7 @@ h2 {
 button {
   outline: none;
   border: none;
+  background-color: #f8fdff;
 }
 
 #reiniciar {

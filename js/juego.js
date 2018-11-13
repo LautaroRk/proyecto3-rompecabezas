@@ -362,28 +362,23 @@ mostrarInstrucciones(instrucciones);
 //Para cambiar el dibujo del rompecabezas
   //Arreglo que recorre las imagenes.HTML 
   var imagenesId = ['pieza1','pieza2','pieza3','pieza4','pieza5',
-  'pieza6','pieza7','pieza8','imagen-objetivo','imagen-final'];
+  'pieza6','pieza7','pieza8','imagen-objetivo','imagen-final','texto-secundario-titulo'];
 
   //Arreglos para cada imagen
-  var cuarto = ['<img src="images/1.jpg">','<img src="images/2.jpg">',
-  '<img src="images/3.jpg">','<img src="images/4.jpg">','<img src="images/5.jpg">',
-  '<img src="images/6.jpg">','<img src="images/7.jpg">','<img src="images/8.jpg">',
-  '<img src="images/objetivo.png">','<img src="images/imagen-completa.jpg">'];
+  var cuarto = ['<img src="images/cuarto-1.jpg">','<img src="images/cuarto-2.jpg">',
+  '<img src="images/cuarto-3.jpg">','<img src="images/cuarto-4.jpg">','<img src="images/cuarto-5.jpg">',
+  '<img src="images/cuarto-6.jpg">','<img src="images/cuarto-7.jpg">','<img src="images/cuarto-8.jpg">',
+  '<img src="images/cuarto-objetivo.png">','<img src="images/cuarto-imagen-completa.jpg">','ordená el cuarto de'];
 
-  var pikachu = ['<img src="images/11.jpg">','<img src="images/12.jpg">',
-  '<img src="images/13.jpg">','<img src="images/14.jpg">','<img src="images/15.jpg">',
-  '<img src="images/16.jpg">','<img src="images/17.jpg">','<img src="images/18.jpg">',
-  '<img src="images/1objetivo.png">','<img src="images/1imagen-completa.jpg">'];
+  var oreja = ['<img src="images/oreja-1.jpg">','<img src="images/oreja-2.jpg">',
+  '<img src="images/oreja-3.jpg">','<img src="images/oreja-4.jpg">','<img src="images/oreja-5.jpg">',
+  '<img src="images/oreja-6.jpg">','<img src="images/oreja-7.jpg">','<img src="images/oreja-8.jpg">',
+  '<img src="images/oreja-objetivo.png">','<img src="images/oreja-imagen-completa.jpg">','ordená el rostro de'];
 
-  var oreja = ['<img src="images/21.jpg">','<img src="images/22.jpg">',
-  '<img src="images/23.jpg">','<img src="images/24.jpg">','<img src="images/25.jpg">',
-  '<img src="images/26.jpg">','<img src="images/27.jpg">','<img src="images/28.jpg">',
-  '<img src="images/2objetivo.png">','<img src="images/2imagen-completa.jpg">'];
-
-  var flores = ['<img src="images/31.jpg">','<img src="images/32.jpg">',
-  '<img src="images/33.jpg">','<img src="images/34.jpg">','<img src="images/35.jpg">',
-  '<img src="images/36.jpg">','<img src="images/37.jpg">','<img src="images/38.jpg">',
-  '<img src="images/3objetivo.png">','<img src="images/3imagen-completa.jpg">'];
+  var flores = ['<img src="images/flores-1.jpg">','<img src="images/flores-2.jpg">',
+  '<img src="images/flores-3.jpg">','<img src="images/flores-4.jpg">','<img src="images/flores-5.jpg">',
+  '<img src="images/flores-6.jpg">','<img src="images/flores-7.jpg">','<img src="images/flores-8.jpg">',
+  '<img src="images/flores-objetivo.png">','<img src="images/flores-imagen-completa.jpg">','ordená el florero de'];
 
   //Función que reemplaza la etiqueta de HTML de cada imagen
   function reemplazarImagenes (imagen){

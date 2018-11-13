@@ -246,7 +246,7 @@ button {
 
 /* Media Queries */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 750px) {
   body {
     flex-direction: column;
     width: 90%;
@@ -255,28 +255,28 @@ button {
   }
   .col-40, .col-60 {
     float: left;
-    max-width: 550px;
-    min-width: 520px;
+    max-width: 460px;
+    min-width: 430px;
   }
   .col-40 {
     padding-bottom: 5px;
   }
 
   #juego {
-    width: 454px;
-    height: 454px;
+    width: 364px;
+    height: 364px;
     margin-left: 17px;
   }
 
   #grilla-fija {
-    width: 454px;
-    height: 454px;
+    width: 364px;
+    height: 364px;
     margin-left: 17px; 
   }
 
   .pieza {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
   }
 
   #indicadores {

@@ -1,12 +1,4 @@
-/*FALTA: -Evitar la acumulacion de instrucciones en la lista.
-         -Mostrar cronómetro y movimientos en tiempo real y con formato de reloj digital.
-         -Agregar botón de Reiniciar.
-         -Terminar de diseñar el cartel ganador que reemplace el alert.
-         -Terminar la funcionalidad del cartelGanador agregando y quitando clases en HTML.
-         -Agregar opción de ocultar imagen objetivo.
-         -Reemplazar flechas de ultimo movimiento por imagenes de las flechas del teclado.
-         -¿? Agregar niveles de dificultad (grillas más grandes o niveles de mezcla) 
-         y variedad de imagenes. */
+//FALTA:   -Ordenar código
 
 // Arreglo que contiene las intrucciones del juego 
 var instrucciones = ["Utilizar las flechas o clickear sobre una pieza para moverla hacia la posición vacía.","Ordenar las piezas hasta alcanzar la imagen objetivo."];
@@ -395,11 +387,8 @@ mostrarInstrucciones(instrucciones);
 
   //Función que reemplaza la etiqueta de HTML de cada imagen
   function reemplazarImagenes (imagen){
-      for (var i = 0; i < imagenesId.length; i++) {
-          document.getElementById(imagenesId[i]).innerHTML = imagen[i];
-      }
-      ocultarCartelGanador();
-      mezclarPiezas(veces);
+    for (var i = 0; i < imagenesId.length; i++) {
+        document.getElementById(imagenesId[i]).innerHTML = imagen[i];
+    }
+    iniciar();
   }
-
-  // reemplazarImagenes(flores);

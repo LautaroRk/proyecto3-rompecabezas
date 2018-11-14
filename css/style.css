@@ -185,7 +185,7 @@ button {
 
 #juego div {
   text-align: center;
-  animation: fadein 2s;
+  animation: fadein 0.5s;
 }
 
 #contenedor-cartel.oculto {

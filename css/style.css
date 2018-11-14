@@ -112,14 +112,14 @@ h2 {
 }
 
 /* .pieza.fija {
-  border: 3px solid black;
+  border: 1px solid black;
 } */
 #grilla-fija {
+  display: flex;
   z-index: 10000;
   position: absolute;
   height: 604px;
   width: 604px;
-  padding: 2px;
 }
 
 #indicadores {
@@ -355,10 +355,11 @@ button {
   #juego, #grilla-fija {
     width: 304px;
     height: 304px;
+    margin-left: 22px;
   }
   .pieza {
     width: 100px;
-    height: 100px
+    height: 100px;
   }
   #cartel-ganador img {
     width: 350px;

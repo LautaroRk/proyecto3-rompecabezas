@@ -115,7 +115,6 @@ h2 {
   border: 1px solid black;
 } */
 #grilla-fija {
-  display: flex;
   z-index: 10000;
   position: absolute;
   height: 604px;
@@ -269,8 +268,8 @@ button {
   }
 
   #grilla-fija {
-    width: 364px;
-    height: 364px;
+    width: 454px;
+    height: 454px;
     margin-left: 17px; 
   }
 

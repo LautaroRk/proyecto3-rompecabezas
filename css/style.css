@@ -304,7 +304,9 @@ button {
   #reloj-contenedor {
     font-size: 18px;
   }
-
+  #reiniciar img {
+    margin-left: 30px;
+  }
   #movimientos {
     font-size: 18px;
   }
@@ -379,7 +381,7 @@ button {
     margin-left: 24px;
   }
   #instrucciones {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
   }
   #objetivo {

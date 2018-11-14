@@ -18,9 +18,11 @@ body {
 }
 
 #header {
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: #f8fdff;
+  padding-left: 25px;
+  background-color: rgb(248, 253, 255);
 }
 
 .btn-imagen img {
@@ -38,6 +40,9 @@ body {
   border-radius: 5%;
 }
 
+#instrucciones {
+  margin-bottom: 30px;
+}
 ul {
   margin-top: 1px;
   padding-left: 0;
@@ -56,7 +61,7 @@ li::before {
 
 .col-40 h1 {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
   font-size: 35px;
   color: #b32911;
   float: left;
@@ -69,7 +74,7 @@ h2 {
   font-size: 1.16em;
   color: #5a8ac2;
   margin-bottom: 5px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .col-40, .col-60 {
@@ -80,16 +85,17 @@ h2 {
 
 .col-40 {
   background: #f8fdff;
-  padding: 0px 20px 25px 25px;
+  padding: 0px 0px 20px 25px;
   color: #000;
   width: 40%;
+  max-width: 250px;
 }
 
 .col-60 {
   background: #f8fdff;
-  padding: 15px 3% 0.5% 3%;
+  padding: 15px 30px 5px 0px;
   width: 60%;
-  min-width: 615px;
+  max-width: 615px;
 }
 
 #juego {
@@ -97,6 +103,7 @@ h2 {
   height: 514px;
   width: 514px;
   padding: 2px;
+  margin-left: 30px;
 }
 
 .pieza {
@@ -119,12 +126,15 @@ h2 {
   position: absolute;
   height: 514px;
   width: 514px;
+  margin-left: 35px;
 }
 
 #indicadores {
   display: flex;
-  justify-content: space-between;
-  margin: 7px 5px 5px 10px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 7px 0px 7px 30px;
 }
 
 #movimientos {
@@ -145,12 +155,12 @@ button {
 #reiniciar {
   justify-self: center;
   text-align: center;
-  padding-left: 40px;
   z-index: 3;
 }
 #reiniciar img {
   width: 30px;
   cursor: pointer;
+  margin-left: 10px;
   z-index: 2;
 }
 
@@ -176,6 +186,7 @@ button {
 #flecha img{
   width: 70px;
   padding-top: 25px;
+  padding-bottom: 20px;
   border-radius: 5px;
 }
 
@@ -217,8 +228,12 @@ button {
   border-radius: 5px;
 }
 
+#header.cartel {
+  width: 40%;
+}
+
 #cartel-ganador img {
-  width: 650px;
+  width: 100%;
 }
 
 #logros {
@@ -252,7 +267,9 @@ button {
     padding-right: 15%;
     padding-left: 15%;
   }
+
   .col-40, .col-60 {
+    width: 100%;
     float: left;
     max-width: 550px;
     min-width: 520px;
@@ -260,17 +277,20 @@ button {
   .col-40 {
     padding-bottom: 5px;
   }
+  .col-60 {
+    padding-left: 12px;
+  }
 
   #juego {
     width: 454px;
     height: 454px;
-    margin-left: 17px;
+    margin-left: 23px;
   }
 
   #grilla-fija {
     width: 454px;
     height: 454px;
-    margin-left: 17px; 
+    margin-left: 23px; 
   }
 
   .pieza {
@@ -279,7 +299,7 @@ button {
   }
 
   #indicadores {
-    margin: 5px 25px;
+    margin: 5px 0px 5px 10px;
   }
   #reloj-contenedor {
     font-size: 18px;
@@ -292,14 +312,11 @@ button {
   #objetivo {
     float: right;
     text-align: right;
-    margin-right: 6%; 
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
+    margin-right: 40px;
   }
   #ultimo-mov {
     float: left;
-    margin-left: 15px;
+    margin-left: 12px;
     text-align: center;
   }
   #flecha img{
@@ -314,6 +331,7 @@ button {
     margin: 40px 25px 0px 30px;
     text-align: right;
     padding-bottom: 0;
+    margin-right: 40px;
   }
   li {
     text-align: justify;
@@ -348,18 +366,42 @@ button {
     max-width: 400px;
     min-width: 370px;
   }
-  #indicadores {
-    padding-right: 10px;
+  .col-40 {
+    padding-left: 10px;
+  }
+
+  #reiniciar {
+    padding-left: 25px;
   }
   #juego, #grilla-fija {
     width: 304px;
     height: 304px;
-    margin-left: 22px;
+    margin-left: 24px;
+  }
+  #instrucciones {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  #objetivo {
+    text-align: center;
+  }
+  #objetivo h2 {
+    margin-bottom: 15px;
+  }
+  #ultimo-mov {
+    text-align: center;
+    width: 150px;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+  #ultimo-mov h2 {
+    margin-bottom: 0px;
   }
   .pieza {
     width: 100px;
     height: 100px;
   }
+
   #cartel-ganador img {
     width: 350px;
   }

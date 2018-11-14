@@ -69,7 +69,7 @@ h2 {
   font-size: 1.16em;
   color: #5a8ac2;
   margin-bottom: 5px;
-  margin-top: 60px;
+  margin-top: 15px;
 }
 
 .col-40, .col-60 {
@@ -94,14 +94,14 @@ h2 {
 
 #juego {
   background: #ad5a36;
-  height: 604px;
-  width: 604px;
+  height: 514px;
+  width: 514px;
   padding: 2px;
 }
 
 .pieza {
-  height: 200px;
-  width: 200px;
+  height: 170px;
+  width: 170px;
   float: left;
 }
 
@@ -117,8 +117,8 @@ h2 {
 #grilla-fija {
   z-index: 10000;
   position: absolute;
-  height: 604px;
-  width: 604px;
+  height: 514px;
+  width: 514px;
 }
 
 #indicadores {
@@ -175,7 +175,7 @@ button {
 
 #flecha img{
   width: 70px;
-  padding-top: 50px;
+  padding-top: 25px;
   border-radius: 5px;
 }
 

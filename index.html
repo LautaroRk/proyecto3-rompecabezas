@@ -9,28 +9,29 @@
   </head>
   <body>
     <div id="container">
-      <div class="col-40">
       
+      <div class="col-40">
+
         <div id="titulo">
           <h1><span id="texto-secundario-titulo" class="smaller">ordená el cuarto de</span><br>Vincent </h1>
         </div>
+
         <div id="instrucciones">
           <h2>Instrucciones</h2>
           <ul id="lista-instrucciones">
           </ul>
         </div>
+
         <div id="ultimo-mov">
           <h2>Último movimiento</h2>
           <div id="flecha" class="texto-centrado"></div>
         </div>
+
         <div id="objetivo">
-            <h2>Objetivo</h2>
-            <div id="imagen-objetivo"><img src="images/cuarto-objetivo.png" alt="Imagen objetivo"></div>
-            <div class="texto-centrado">
-              
-            </div>
-          </div>
-        
+          <h2>Objetivo</h2>
+          <div id="imagen-objetivo"><img src="images/cuarto-objetivo.png" alt="Imagen objetivo"></div>
+        </div>
+
       </div>
 
       <div class="col-60">
@@ -58,6 +59,7 @@
             <div id="2-2" class="pieza fija" onclick="moverPiezaClickeada(2,2)"></div>
           </div>
         </div>
+
         <div id="juego">
           <div id="pieza1" class="pieza"><img src="images/cuarto-1.jpg" alt="pieza 1"></div>
           <div id="pieza2" class="pieza"><img src="images/cuarto-2.jpg" alt="pieza 2"></div>
@@ -69,6 +71,7 @@
           <div id="pieza8" class="pieza"><img src="images/cuarto-8.jpg" alt="pieza 8"></div>
           <div id="pieza9" class="pieza"></div>
         </div>
+
         <div id="indicadores">
           <div id="movimientos">0</div>
           <button id="reiniciar" onclick="iniciar()"><img src="images/restart.png" alt="Restart"></button>
@@ -79,25 +82,27 @@
         </div>
 
       </div>
-
-      <div id="footer">
-        
-      </div>
     </div>
     <div id="contenedor-cartel" class="oculto">
+
       <div id="header" class="cartel">
         <button class='btn-imagen cartel'><img onclick="reemplazarImagenes(cuarto)" src="images/btn-cuarto.jpg" alt="Cuarto"></button>
         <button class='btn-imagen cartel'><img onclick="reemplazarImagenes(oreja)" src="images/btn-oreja.jpg" alt="Oreja"></button>
         <button class='btn-imagen cartel'><img onclick="reemplazarImagenes(flores)" src="images/btn-flores.jpg" alt="Flores"></button>
       </div>
+
       <div id="cartel-ganador">
+        
         <div id="imagen-final"><img src="images/cuarto-imagen-completa.jpg" alt="imagen final"></div>
+        
         <div id="logros">
           <div id="logros-movimientos"></div>
           <button id="reiniciar-cartel" onclick="iniciar()"><img src="images/restart.png" alt="Restart"></button>
           <div id="logros-tiempo"></div>
         </div>
+
       </div>
+
     </div>
 
     <script src="js/juego.js"></script>

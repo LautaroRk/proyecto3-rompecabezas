@@ -179,18 +179,6 @@ function moverEnDireccion(direccion) {
     }
 }
 
-// NO FUNCIONA. Funciones para mostrar y ocultar el boton de reinicio
-var botonReiniciar = document.getElementById('reiniciar');
-
-function mostrarBoton(boton) {
-  boton.classList.remove('ocultar');
-}
-
-function ocultarBoton(boton) {
-  boton.classList.add('ocultar');
-}
-
-
 /* FUNCION YA IMPLEMENTADA: codigosDireccion es un objeto que te permite reemplazar
 el uso de números confusos en tu código. Para referirte a la dir
 izquierda, en vez de usar el número 37, ahora podés usar:
@@ -315,7 +303,7 @@ function capturarTeclas() {
     })
 }
 
-//No funciona. Probar generar una grilla invisible arriba de la otra que mantenga las posiciones fijas.
+//Para mover las piezas clickeadas. Utiliza la grilla invisible que mantiene las posiciones fijas.
 function moverPiezaClickeada(fila, columna) {
 
   if(fila - 1 === filaVacia && columna === columnaVacia) {
